@@ -82,7 +82,7 @@ $_SESSION['numbers'] = array_map(
 <ul>
     <li>You get free entry to the conference.</li>
     <li>There will be food and drinks for you, for free.</li>
-    <li>We will not be able to cover travel or accomodation.</li>
+    <li>We will not be able to cover travel or accommodation.</li>
 </ul>
 
 <h4>Your talk</h4>

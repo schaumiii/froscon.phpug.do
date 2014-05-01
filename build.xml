@@ -24,7 +24,7 @@
         -->
         <exec executable="ssh">
             <arg value="${website.host}" />
-            <arg value="cd ${website.path} &amp;&amp; git reset --hard origin/master" />
+            <arg value="cd ${website.path} &amp;&amp; git pull" />
         </exec>
     </target>
 </project>

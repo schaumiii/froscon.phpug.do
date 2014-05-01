@@ -13,7 +13,7 @@
             <arg value="-S" />
             <arg value="${server.host}" />
             <arg value="-t" />
-            <arg value="web/" />
+            <arg value="htdocs/" />
         </exec>
     </target>
 

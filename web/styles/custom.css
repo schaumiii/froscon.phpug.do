@@ -4,3 +4,7 @@ body {
 
     font-family: "Deja Vu Sans Mono", monospace;
 }
+
+dt {
+    font-weight: bold;
+}

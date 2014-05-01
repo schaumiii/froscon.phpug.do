@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="PHP@FrOSCon" default="run" basedir="./">
+    <!--
+        Import project specific settings.
+    -->
+    <property file="${basedir}/build.properties.local" />
+    <property file="${basedir}/build.properties" />
+
+    <target name="run">
+        <echo>Server started at http://${server.host}/</echo>
+
+        <exec executable="php">
+            <arg value="-S" />
+            <arg value="${server.host}" />
+            <arg value="-t" />
+            <arg value="web/" />
+        </exec>
+    </target>
+
+    <target name="deploy">
+        <!-- Not using sshexec, because it does not know / handle local SSH
+             configuration, and we probably cannot and do not want to duplicate
+             tunnel configuration etc.
+        -->
+        <exec executable="ssh">
+            <arg value="${website.host}" />
+            <arg value="cd ${website.path} &amp;&amp; git reset --hard origin master" />
+        </exec>
+    </target>
+</project>

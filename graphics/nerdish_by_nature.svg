@@ -14,7 +14,10 @@
    id="svg2"
    version="1.1"
    inkscape:version="0.48.4 r9939"
-   sodipodi:docname="nerdish_by_nature.svg">
+   sodipodi:docname="nerdish_by_nature.svg"
+   inkscape:export-filename="/home/kore/devel/froscon.phpug.do/graphics/nerdish_by_nature.png"
+   inkscape:export-xdpi="48.957405"
+   inkscape:export-ydpi="48.957405">
   <defs
      id="defs4" />
   <sodipodi:namedview
@@ -24,9 +27,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.4755287"
+     inkscape:zoom="0.90070997"
      inkscape:cx="294.10229"
-     inkscape:cy="127.86399"
+     inkscape:cy="261.09222"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -47,7 +50,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>

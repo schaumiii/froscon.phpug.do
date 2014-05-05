@@ -53,9 +53,9 @@ $content = ob_get_clean();
     <link rel="stylesheet" href="/styles/custom.css">
 </head>
 <body>
-<div class="row clear">
+<header class="row clear">
     <div class="col col-8 mobile-full">
-        <h1>Nerdish By Nature</h1>
+        <h1>Nerdish By Nature<a href="#nerdish">*</a></h1>
         <h2>FrOSCon PHP Room</h2>
         <ul>
         <?php foreach ($pages as $page): ?>
@@ -66,9 +66,17 @@ $content = ob_get_clean();
     <div class="col col-4 mobile-full">
         <img src="images/nerdish_by_nature.png" width="300" height="280" alt="Nerdish By Nature" />
     </div>
-</div>
+</header>
 <div class="row clear">
     <div class="col"><?=$content?></div>
 </div>
+<footer class="row clear">
+    <p id="nerdish">
+        * We know that this is not "correct" English. It is a reference to the song <a href="https://en.wikipedia.org/wiki/Fettes_Brot#Success_with_Nordisch_by_Nature_and_Jein">"Nordisch by Nature" by "Fettes Brot"</a>.
+    </p>
+    <p>
+        <small>Source: <a href="https://github.com/schaumiii/froscon.phpug.do">https://github.com/schaumiii/froscon.phpug.do</a></small>
+    </p>
+</footer>
 </body>
 </html>

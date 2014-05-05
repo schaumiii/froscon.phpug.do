@@ -75,7 +75,7 @@ $content = ob_get_clean();
         * We know that this is not "correct" English. It is a reference to the song <a href="https://en.wikipedia.org/wiki/Fettes_Brot#Success_with_Nordisch_by_Nature_and_Jein">"Nordisch by Nature" by "Fettes Brot"</a>.
     </p>
     <p>
-        <small>Source: <a href="https://github.com/schaumiii/froscon.phpug.do">https://github.com/schaumiii/froscon.phpug.do</a></small>
+        <small>Pull requests welcome: <a href="https://github.com/schaumiii/froscon.phpug.do">https://github.com/schaumiii/froscon.phpug.do</a></small>
     </p>
 </footer>
 </body>

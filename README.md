@@ -1,7 +1,7 @@
 froscon.phpug.do
 ================
 
-Website and CFP submission form for PHP room at FrOSCon.
+Website and CFP submission form for PHP room at FrOSCon [froscon.phpugdo.de](http://froscon.phpugdo.de).
 
 Run: ant
 

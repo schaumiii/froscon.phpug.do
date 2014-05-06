@@ -5,18 +5,21 @@ class Page {
     public $identifier;
     public $name;
     public $controller;
+    public $visible;
 
-    public function __construct($identifier, $name, $controller)
+    public function __construct($identifier, $name, $controller, $visible = true)
     {
         $this->identifier = $identifier;
         $this->name = $name;
         $this->controller = $controller;
+        $this->visible = $visible;
     }
 }
 
 $pages = array(
     new Page('start', 'Start', 'index.html'),
     new Page('cfp', 'Call For Papers', 'cfp.php'),
+    new Page('talks', 'Talks', 'talks.php', false),
 );
 
 $selected = isset($_GET['page']) ? $_GET['page'] : 'start';
@@ -59,6 +62,7 @@ $content = ob_get_clean();
         <h2>FrOSCon PHP Room</h2>
         <ul>
         <?php foreach ($pages as $page): ?>
+            <?php if (!$page->visible) continue; ?>
             <li <?php if ($selected === $page->identifier): ?>class="active"<?php endif; ?>><a href="/?page=<?=$page->identifier?>"><?=$page->name?></a></li>
         <?php endforeach; ?>
         </ul>

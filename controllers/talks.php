@@ -53,7 +53,7 @@ try {
     <?php foreach ($talks as $talk): ?>
     <li>
         <h5><?=htmlentities($talk->title)?></h5>
-        <p><?=htmlentities($talk->abstract)?></p>
+        <p><?=nl2br(htmlentities(trim($talk->abstract)))?></p>
     </li>
     <?php endforeach; ?>
 </ul>

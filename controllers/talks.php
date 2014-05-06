@@ -53,6 +53,7 @@ try {
     <?php foreach ($talks as $talk): ?>
     <li>
         <h5><?=htmlentities($talk->title)?></h5>
+        <?php if ($talk->first) { ?><p><em>First talk</em></p><?php } ?>
         <p><?=nl2br(htmlentities(trim($talk->abstract)))?></p>
     </li>
     <?php endforeach; ?>

@@ -89,7 +89,7 @@ $_SESSION['numbers'] = array_map(
 <p>When selecting the talks we will <strong>not</strong> know who proposed the talk.</p>
 
 <h4>Deadline</h4>
-<p>You will have to submit your talks until <strong>23th June 2014</strong>.</p>
+<p>You will have to submit your talks until <strong>23th June 2015</strong>.</p>
 
 <?php if (count($errors)): ?>
 <h4>Sorry, but:</h4>

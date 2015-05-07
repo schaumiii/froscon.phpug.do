@@ -5,6 +5,12 @@ body {
     font-family: "Deja Vu Sans Mono", monospace;
 }
 
+blockquote {
+    font-size: 1rem;
+    line-height: 1.3125rem;
+    margin-left: 2rem;
+}
+
 dt,
 li.active {
     font-weight: bold;

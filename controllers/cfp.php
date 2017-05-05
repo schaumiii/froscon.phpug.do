@@ -92,48 +92,48 @@ $_SESSION['numbers'] = array_map(
 <h4>Deadline</h4>
 <p>You will have to submit your talks until <strong>23rd June 2016</strong>.</p>
 
-<?php if (count($errors)): ?>
+<?php if (count($errors)) { ?>
 <h4>Sorry, but:</h4>
 <ul class="errors">
-    <?php foreach ($errors as $message): ?>
-    <li><?=$message?></li>
-    <?php endforeach; ?>
+    <?php foreach ($errors as $message) { ?>
+    <li><?php echo $message?></li>
+    <?php } ?>
 </ul>
-<?php endif; ?>
+<?php } ?>
 
-<?php if (count($success)): ?>
+<?php if (count($success)) { ?>
 <h4>Yeah:</h4>
 <ul class="success">
-    <?php foreach ($success as $message): ?>
-    <li><?=$message?></li>
-    <?php endforeach; ?>
+    <?php foreach ($success as $message) { ?>
+    <li><?php echo $message; ?></li>
+    <?php } ?>
 </ul>
-<?php endif; ?>
+<?php } ?>
 
 <form method="POST">
     <fieldset>
         <label for="name">Full Name</label>
-        <input type="text" name="name" id="name" placeholder="Your full name" value="<?=htmlspecialchars($model->name)?>">
+        <input type="text" name="name" id="name" placeholder="Your full name" value="<?php echo htmlspecialchars($model->name); ?>">
 
         <label for="email">E-Mail</label>
-        <input type="text" name="email" id="email" placeholder="you@example.com" value="<?=htmlspecialchars($model->email)?>">
+        <input type="text" name="email" id="email" placeholder="you@example.com" value="<?php echo htmlspecialchars($model->email); ?>">
 
-        <label for="sum">Calculate: <?=implode(' + ', $_SESSION['numbers'])?> (You gonna beat all the bots with this!)</label>
+        <label for="sum">Calculate: <?php echo implode(' + ', $_SESSION['numbers']); ?> (You gonna beat all the bots with this!)</label>
         <input type="text" name="sum" id="sum" placeholder="$result">
 
         <span class="checkbox">
-            <input type="checkbox" <?php if ($model->first): ?>checked<?php endif; ?> name="first" id="first" value="1">
+            <input type="checkbox" <?php ($model->first ? 'checked' : '' ); ?> name="first" id="first" value="1">
             <label for="first">Check this, if you are a first-time speaker – we can then provide you with additional mentoring to get your talk right.</label>
         </span>
 
         <label for="title">Talk Title</label>
-        <input type="text" name="title" id="title" placeholder="Talk title" value="<?=htmlspecialchars($model->title)?>">
+        <input type="text" name="title" id="title" placeholder="Talk title" value="<?php echo htmlspecialchars($model->title); ?>">
 
         <label for="abstract">Abstract (will appear on website)</label>
-        <textarea name="abstract" id="abstract"><?=htmlspecialchars($model->abstract)?></textarea>
+        <textarea name="abstract" id="abstract"><?php echo htmlspecialchars($model->abstract); ?></textarea>
 
         <label for="notes">Notes (will not appear on website)</label>
-        <textarea name="notes" id="notes"><?=htmlspecialchars($model->notes)?></textarea>
+        <textarea name="notes" id="notes"><?php echo htmlspecialchars($model->notes); ?></textarea>
 
         <input type="submit" name="submit" value="Submit talk" class="button">
     </fieldset>

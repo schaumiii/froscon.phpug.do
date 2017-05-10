@@ -77,7 +77,14 @@ $_SESSION['numbers'] = array_map(
 
 ?>
 <h3>Call For Papers</h3>
-<p>We want to nerd out in our room. We want you to propose talks on nerdy, crazy stuff you did with PHP. Not the common conference talk, but let us hear about the crazy shit you are not supposed to tell anyone. Wrote a distributed raytracer, which generates images based on cosmic radiation only using functional paradigms in PHP? You are right on.</p>
+<p>
+    The scope of PHP developers has changed dramatically: if you have built your applications from scratch in
+    pure PHP back in the days, you can trust in numerous frameworks covering all relevant topics, from routing over
+    security aspects to dependency injection nowadays. Also, there is a sophisticated tooling, a stable infrastructure
+    and the achievements of DevOps culture; and to be honest, the classic LAMP stack has become part of the
+    web devlopment history. The range of skills to be covered and to be handled is way broader in
+    modern days – and thus more exciting. This is exactly what we want to represent at the PHP track at FrOSCon.
+</p>
 <h4>Facts:</h4>
 <ul>
     <li>You get free entry to the conference.</li>
@@ -86,11 +93,24 @@ $_SESSION['numbers'] = array_map(
     <li>Read more about the <a href="/#audience">audience</a> and the <a href="/#coc">Code of Conduct</a></li>
 </ul>
 
-<h4>Your talk</h4>
+<h4>Anonymous proposals – fair selection</h4>
 <p>When selecting the talks we will <strong>not</strong> know who proposed the talk.</p>
 
 <h4>Deadline</h4>
-<p>You will have to submit your talks until <strong>23rd June 2016</strong>.</p>
+<p>You will have to submit your talks until <strong>25rd June 2017</strong>.</p>
+
+<h4>Possible Topics</h4>
+<ul>
+    <li>Dealing with Legacy</li>
+    <li>Frameworks</li>
+    <li>Tooling - Testing / Building / Deployment</li>
+    <li>
+        <ul>
+            <li>PHP Devs in Frontend Environments</li>
+            <li>DevOps</li>
+        </ul>
+    </li>
+</ul>
 
 <?php if (count($errors)) { ?>
 <h4>Sorry, but:</h4>

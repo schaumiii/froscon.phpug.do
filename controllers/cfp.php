@@ -77,7 +77,14 @@ $_SESSION['numbers'] = array_map(
 
 ?>
 <h3>Call For Papers</h3>
-<p>We want to nerd out in our room. We want you to propose talks on nerdy, crazy stuff you did with PHP. Not the common conference talk, but let us hear about the crazy shit you are not supposed to tell anyone. Wrote a distributed raytracer, which generates images based on cosmic radiation only using functional paradigms in PHP? You are right on.</p>
+<p>
+    The scope of PHP developers has changed dramatically: if you have built your applications from scratch in
+    pure PHP back in the days, you can trust in numerous frameworks covering all relevant topics, from routing over
+    security aspects to dependency injection nowadays. Also, there is a sophisticated tooling, a stable infrastructure
+    and the achievements of DevOps culture; and to be honest, the classic LAMP stack has become part of the
+    web devlopment history. The range of skills to be covered and to be handled is way broader in
+    modern days – and thus more exciting. This is exactly what we want to represent at the PHP track at FrOSCon.
+</p>
 <h4>Facts:</h4>
 <ul>
     <li>You get free entry to the conference.</li>
@@ -86,54 +93,67 @@ $_SESSION['numbers'] = array_map(
     <li>Read more about the <a href="/#audience">audience</a> and the <a href="/#coc">Code of Conduct</a></li>
 </ul>
 
-<h4>Your talk</h4>
+<h4>Anonymous proposals – fair selection</h4>
 <p>When selecting the talks we will <strong>not</strong> know who proposed the talk.</p>
 
 <h4>Deadline</h4>
-<p>You will have to submit your talks until <strong>23rd June 2016</strong>.</p>
+<p>You will have to submit your talks until <strong>25rd June 2017</strong>.</p>
 
-<?php if (count($errors)): ?>
+<h4>Possible Topics</h4>
+<ul>
+    <li>Dealing with Legacy</li>
+    <li>Frameworks</li>
+    <li>Tooling - Testing / Building / Deployment</li>
+    <li>
+        <ul>
+            <li>PHP Devs in Frontend Environments</li>
+            <li>DevOps</li>
+        </ul>
+    </li>
+</ul>
+
+<?php if (count($errors)) { ?>
 <h4>Sorry, but:</h4>
 <ul class="errors">
-    <?php foreach ($errors as $message): ?>
-    <li><?=$message?></li>
-    <?php endforeach; ?>
+    <?php foreach ($errors as $message) { ?>
+    <li><?php echo $message?></li>
+    <?php } ?>
 </ul>
-<?php endif; ?>
+<?php } ?>
 
-<?php if (count($success)): ?>
+<?php if (count($success)) { ?>
 <h4>Yeah:</h4>
 <ul class="success">
-    <?php foreach ($success as $message): ?>
-    <li><?=$message?></li>
-    <?php endforeach; ?>
+    <?php foreach ($success as $message) { ?>
+    <li><?php echo $message; ?></li>
+    <?php } ?>
 </ul>
-<?php endif; ?>
+<?php } ?>
 
 <form method="POST">
     <fieldset>
         <label for="name">Full Name</label>
-        <input type="text" name="name" id="name" placeholder="Your full name" value="<?=htmlspecialchars($model->name)?>">
+        <input type="text" name="name" id="name" placeholder="Your full name" value="<?php echo htmlspecialchars($model->name); ?>">
 
         <label for="email">E-Mail</label>
-        <input type="text" name="email" id="email" placeholder="you@example.com" value="<?=htmlspecialchars($model->email)?>">
+        <input type="text" name="email" id="email" placeholder="you@example.com" value="<?php echo htmlspecialchars($model->email); ?>">
 
-        <label for="sum">Calculate: <?=implode(' + ', $_SESSION['numbers'])?> (You gonna beat all the bots with this!)</label>
+        <label for="sum">Calculate: <?php echo implode(' + ', $_SESSION['numbers']); ?> (You gonna beat all the bots with this!)</label>
         <input type="text" name="sum" id="sum" placeholder="$result">
 
         <span class="checkbox">
-            <input type="checkbox" <?php if ($model->first): ?>checked<?php endif; ?> name="first" id="first" value="1">
+            <input type="checkbox" <?php ($model->first ? 'checked' : '' ); ?> name="first" id="first" value="1">
             <label for="first">Check this, if you are a first-time speaker – we can then provide you with additional mentoring to get your talk right.</label>
         </span>
 
         <label for="title">Talk Title</label>
-        <input type="text" name="title" id="title" placeholder="Talk title" value="<?=htmlspecialchars($model->title)?>">
+        <input type="text" name="title" id="title" placeholder="Talk title" value="<?php echo htmlspecialchars($model->title); ?>">
 
         <label for="abstract">Abstract (will appear on website)</label>
-        <textarea name="abstract" id="abstract"><?=htmlspecialchars($model->abstract)?></textarea>
+        <textarea name="abstract" id="abstract"><?php echo htmlspecialchars($model->abstract); ?></textarea>
 
         <label for="notes">Notes (will not appear on website)</label>
-        <textarea name="notes" id="notes"><?=htmlspecialchars($model->notes)?></textarea>
+        <textarea name="notes" id="notes"><?php echo htmlspecialchars($model->notes); ?></textarea>
 
         <input type="submit" name="submit" value="Submit talk" class="button">
     </fieldset>

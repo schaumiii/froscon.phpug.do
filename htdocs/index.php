@@ -6,37 +6,34 @@ class Page {
     public $name;
     public $controller;
     public $visible;
+    public $type;
 
-    public function __construct($identifier, $name, $controller, $visible = true)
+    public function __construct($identifier, $name, $controller, $visible = true, $type = 'html')
     {
         $this->identifier = $identifier;
         $this->name = $name;
         $this->controller = $controller;
         $this->visible = $visible;
+        $this->type = $type;
     }
 }
 
 $pages = array(
-    new Page('start', 'Start', 'index.html'),
-    new Page('cfp', 'Call For Papers', 'cfp.php'),
-    new Page('talks', 'Talks', 'talks.php', false),
+    'start' => new Page('start', 'Start', 'index.html'),
+    'cfp' => new Page('cfp', 'Call For Papers', 'cfp.php'),
+    'talks' => new Page('talks', 'Talks', 'talks.php', false),
+    'getTalks' => new Page('getTalks', 'Api for Talks', 'talks.php', false, 'json'),
 );
 
 $selected = isset($_GET['page']) ? $_GET['page'] : 'start';
-$current = new Page('404', 'Not Found', '404.php');
-foreach ($pages as $page) {
-    if ($selected === $page->identifier) {
-        $current = $page;
-        goto view;
-    }
-}
+$current = isset($pages[$selected]) ? $pages[$selected] : new Page('404', 'Not Found', '404.php');
 
-view:
 ob_start();
-include __DIR__ . '/../controllers/' . $current->controller;
+include __DIR__.'/../controllers/'.$current->controller;
 $content = ob_get_clean();
 
-?>
+if ('html' === $current->type) { ?>
+
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 <head>
@@ -61,10 +58,18 @@ $content = ob_get_clean();
         <h1>Nerdish By Nature<a href="#nerdish">*</a></h1>
         <h2>FrOSCon PHP Room</h2>
         <ul>
-        <?php foreach ($pages as $page): ?>
-            <?php if (!$page->visible) continue; ?>
-            <li <?php if ($selected === $page->identifier): ?>class="active"<?php endif; ?>><a href="/?page=<?=$page->identifier?>"><?=$page->name?></a></li>
-        <?php endforeach; ?>
+        <?php foreach ($pages as $page) {
+            if (!$page->visible) {
+                continue;
+            }
+        ?>
+            <li
+                <?php if ($selected === $page->identifier) { ?>
+                    class="active"
+                <?php } ?>>
+                <a href="/?page=<?php echo $page->identifier; ?>"><?php echo $page->name; ?></a>
+            </li>
+        <?php } ?>
         </ul>
     </div>
     <div class="col col-4 mobile-full">
@@ -72,7 +77,7 @@ $content = ob_get_clean();
     </div>
 </header>
 <div class="row clear">
-    <div class="col"><?=$content?></div>
+    <div class="col"><?php echo $content; ?></div>
 </div>
 <footer class="row clear">
     <p id="nerdish">
@@ -84,3 +89,6 @@ $content = ob_get_clean();
 </footer>
 </body>
 </html>
+<?php } else {
+    echo $content;
+}

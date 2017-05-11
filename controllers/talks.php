@@ -36,28 +36,33 @@ try {
     $errors[] = "D'Oh. Internal error. Ping us.";
 }
 
-?>
+if ('html' === $current->type) { ?>
 <h3>Talks</h3>
+    <?php if (count($errors)) { ?>
+        <h4>Sorry, but:</h4>
+        <ul class="errors">
+            <?php foreach ($errors as $message) { ?>
+            <li><?php echo $message; ?></li>
+            <?php } ?>
+        </ul>
+    <?php } ?>
 
-<?php if (count($errors)): ?>
-<h4>Sorry, but:</h4>
-<ul class="errors">
-    <?php foreach ($errors as $message): ?>
-    <li><?=$message?></li>
-    <?php endforeach; ?>
-</ul>
-<?php endif; ?>
-
-<?php if (count($talks)): ?>
-<ul>
-    <?php foreach ($talks as $talk): ?>
-    <li>
-        <h5><?=htmlentities($talk->title)?></h5>
-        <?php if ($talk->first) { ?><p><em>First talk</em></p><?php } ?>
-        <p><?=nl2br(htmlentities(trim($talk->abstract)))?></p>
-    </li>
-    <?php endforeach; ?>
-</ul>
-<?php else: ?>
-<h4>No talks yet.</h4>
-<?php endif; ?>
+    <?php if (count($talks)) { ?>
+        <ul>
+            <?php foreach ($talks as $talk) { ?>
+            <li>
+                <h5><?php echo htmlentities($talk->title); ?></h5>
+                <?php if ($talk->first) { ?>
+                    <p><em>First talk</em></p>
+                <?php } ?>
+                <p><?php echo nl2br(htmlentities(trim($talk->abstract))); ?></p>
+            </li>
+            <?php } ?>
+        </ul>
+        <?php } else { ?>
+        <h4>No talks yet.</h4>
+    <?php } ?>
+<?php } else {
+    header('Content-Type: application/json');
+    echo json_encode($talks);
+}

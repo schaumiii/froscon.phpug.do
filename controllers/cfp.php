@@ -97,7 +97,7 @@ $_SESSION['numbers'] = array_map(
 <p>When selecting the talks we will <strong>not</strong> know who proposed the talk.</p>
 
 <h4>Deadline</h4>
-<p>You will have to submit your talks until <strong>25rd June 2017</strong>.</p>
+<p>You will have to submit your talks until <strong>June 25, 2017</strong>.</p>
 
 <h4>Possible Topics</h4>
 <ul>
